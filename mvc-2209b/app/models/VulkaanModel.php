@@ -1,35 +1,25 @@
 <?php
 
-class Vulkaan extends BaseController
+class vulkaanModel
 {
-    private $vulkaanModel;
+    private $db;
 
     public function __construct()
     {
-        $this->vulkaanModel = $this->model('CountryModel');
+        $this->db = new Database();
     }
 
-    public function index()
+    public function getVulkaan()
     {
-        $vulkaan = $this->vulkaanModel->getVulkaan();
+        $sql = "SELECT  Naam
+                       ,Hoogte
+                       ,Land
+                       ,JaarLaatsteUitbarsting
+                       ,AantalSlachtoffers
+                FROM   Vulkaan ORDER BY id DESC";
 
-        $rows = '';
-        foreach ($vulkaan as $result) {
-            $rows .= "<tr>
-                        <td>$result->Naam</td>
-                        <td>$result->Hoogte</td>
-                        <td>$result->Land</td>
-                        <td>$result->JaarLaatsteUitbarsting</td>
-                        <td>$result->AantalSlachtoffers</td>
-                      </tr>";
-        }
+        $this->db->query($sql);
 
-        $data = [
-            'title' => 'Welkom op de Landenpagina',
-            'records' => 'info uit de database',
-            'rows'    => $rows
-        ];
-
-        $this->view('Vulkaan/index', $data);
+        return $this->db->resultSet();
     }
 }

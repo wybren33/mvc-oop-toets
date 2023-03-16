@@ -11,7 +11,7 @@ class Vulkaan extends BaseController
 
     public function index()
     {
-        $vulkaan = $this->vulkaanModel->getCountries();
+        $vulkaan = $this->vulkaanModel->getVulkaan();
 
         $rows = '';
         foreach ($vulkaan as $result) {

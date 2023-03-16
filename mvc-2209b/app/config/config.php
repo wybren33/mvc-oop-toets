@@ -3,4 +3,4 @@
     define('DB_USER', 'root');
     define('DB_PASS', '');
     define('DB_NAME', 'mvc-oop-toets');
-    define('URLROOT', 'http://mvc-oop-toets.com');
+    define('URLROOT', 'http://www.mvc-oop-toets.com');
