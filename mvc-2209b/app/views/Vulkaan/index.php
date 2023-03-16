@@ -8,21 +8,21 @@
 </head>
 <body>
     <h3><?= $data['title']; ?></h3>
-    <a href="<?= URLROOT; ?>/country/index">Landen</a>
-    <a href="<?= URLROOT; ?>/Vulkaan/index">Vulkaan</a>
 
-    <table border="1">
+    <table border='1'>
         <thead>
-            <th>Id</th>
-            <th>Naam</th>
+            <th>Naam Vulkaan</th>
+            <th>Hoogte (m)</th>
+            <th>Land</th>
+            <th>Laatste uitbarsting</th>
+            <th>Aantal Slachtoffers</th>
         </thead>
         <tbody>
-    	    <tr>
-                <td><?= $data['id']; ?></td>
-                <td><?= $data['name']; ?></td>
-            </tr>
+            <?= $data['rows']; ?>
         </tbody>
     </table>
 
+
+    <a href="<?= URLROOT; ?>/home/index">home</a>
 </body>
 </html>
